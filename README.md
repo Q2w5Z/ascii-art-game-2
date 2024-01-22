@@ -1,4 +1,4 @@
-my ascii art geme
+my ascii art game
 credit
 jgs
 special thanks
