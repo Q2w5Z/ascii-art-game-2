@@ -1,6 +1,131 @@
 #include <iostream>
 #include <random>
 using namespace std;
+void StartCoOp()
+{
+	cout << "co op it is\n";
+		system("pause");
+		cout << "select name player one:";
+		cin >> name;
+		cout << "\n select name player two: ";
+		cin >> name2;
+
+		cout << "okey " << name << " and " << name2 << " lets see what you got\n";
+		system("pause");
+		while ((playerHEALTH > 0) && (playertwo > 0))
+		{
+
+
+			std::cout << name << " starts\n w = sword\n y = axe \n x = shield\n\n\n " << name << "your health is" << playerHEALTH;
+			cin >> attackCHOSSER;
+			switch(attackCHOSSER)
+				case'y':
+					randomMISS = range(generator);
+				if (randomMISS <= 40)
+				{
+					cout << "you missed\n";
+				}
+				else
+				{
+
+					int attackY = attackY1(generator);
+
+					playerhealth -= attackY;
+
+					cout << name2 << "'s health---->" << playerhealth << "\n\n\n\n";;
+
+				break;
+					case'x':
+						cout << "you blocked\n";
+				continue;	
+					break;
+					case'w':
+						randomMISS = range(generator);
+				if (randomMISS <= 10)
+				{
+					cout << "you missed";
+				}
+				else
+				{
+
+					int attackW = attackW1(generator);
+
+					playerHEALTH -= attackW;
+
+					cout << name2 << "'s health---->" << playerheath << "\n\n\n\n";
+					break;
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			std::cout << name2 << "'s turn now\n w = sword\n y = axe \n x = shield" << name2 << " your health is " << playertwo;
+			cin >> attackCHOSSER;
+
+
+
+switch(attackCHOSSER)
+				case'y':
+					randomMISS = range(generator);
+				if (randomMISS <= 40)
+				{
+					cout << "you missed\n";
+				}
+				else
+				{
+
+					int attackY = attackY1(generator);
+
+					playertwo-= attackY;
+
+					cout << name << "'s health---->" << playertwo << "\n\n\n\n";;
+
+				break;
+					case'x':
+						cout << "you blocked\n";
+				continue;	
+					break;
+					case'w':
+						randomMISS = range(generator);
+				if (randomMISS <= 10)
+				{
+					cout << "you missed";
+				}
+				else
+				{
+
+					int attackW = attackW1(generator);
+
+					playertwo -= attackW;
+
+					cout << name << "'s health---->" << playertwo << "\n\n\n\n";
+					break;
+					
+
+			      }
+
+
+		}
+	}
+}
+		}
+}
 void ShowLoseScreen()
 {
 	cout << R"(
@@ -102,8 +227,9 @@ void ShowOpeningCutsecne()
 /\______________________________________________________________________
 |                                                                        |   
 |THERE IT IS THE DOOR FOR HEAVEN YOU CAN GO NOW GO JUST KIDDING BY BY    |																	
-|																		 |
- -------------------------------------------------------------------------                                                                   
+|									 |
+--------------------------------------------------------------------------
+		
 )";
 
 	system("pause");
@@ -127,9 +253,8 @@ void ShowOpeningCutsecne()
      /\______________________________________________________________________
     |                                                                         | 
     |I WAS THE DEVIL ALL ALONG BRING ME 20 SOULS OF THE DEAD AND I WILL OPEN  |																
-	|	                             IT          				              |
-     ------------------------------------------------------------------------- 
-
+    |	                             IT          		              |
+    ---------------------------------------------------------------------------
 
 
 
@@ -505,278 +630,14 @@ int main()
 				enemysdefeated = enemysdefeated + 1;
 			}
 
-			std::cout << "fight started\nenemy incoming\n\n\n\n\n\n";
-
-			cout << "souls collected " << enemysdefeated << "   ";
-			std::cout << "your health-->" << playerHEALTH << "  enemy health -->" << enemyHEALTH << "\n\n";
-
-			playerHEALTH = playerHEALTH;
-			system("pause");
-			//enemy look
-			ShowUI();
-
-			system("pause");
-			//player sys
-			std::cout << "\n\n\n\n\n\n\n\n\n\n\nyou start\n w = sword\n y = axe \n x = shield\n S = SHOP ";
-			cin >> attackCHOSSER;
-			NEWenemyblockihatethelastone = newBLOCK(generator);
-			if (NEWenemyblockihatethelastone == 1)
-			{
-				cout << "enemy blocked\n\n";
-			}
-			else
-			{
-
-
-				if (attackCHOSSER == 'y')
-				{
-					randomMISS = range(generator);
-					if (randomMISS <= 40)
-					{
-						cout << "you missed\n";
-					}
-					else
-					{
-
-						int attackY = attackY1(generator);
-
-						enemyHEALTH -= attackY;
-
-						cout << "enemy health ---->" << enemyHEALTH << "\n";
-
-					}
-
-
-
-
-				}
-				else if (attackCHOSSER == 'x')
-				{
-					cout << "you blocked\n";
-					continue;
-				}
-				else if (attackCHOSSER == 'w')
-				{
-					randomMISS = range(generator);
-					if (randomMISS <= 10)
-					{
-						cout << "you missed";
-					}
-					else
-					{
-
-						int attackW = attackW1(generator);
-
-						enemyHEALTH -= attackW;
-
-						cout << "enemy health ---->" << enemyHEALTH << "\n";
-
-					}
-				}
-
-				if (attackCHOSSER == 's')
-				{
-					enemyHEALTH -= 1000000;
-					//cant find non copyrighted shop ascii art (fix later!)
-					cout << "welcome to ma shop yuong sir what can i do for you\n you can have a\n damage boost 3 souls buy by pressing A \n more health 3 souls (with a great deal buy more health get fully healed) buy by pressing D \n you can buy drugs that boost your damage BY 5! for 1 round 5 souls buy by pressing G      \n\n\n\n\n\n\n";
-
-					if (shopCHOOSER == 'd')
-					{
-						playerhealthreset *= 1.3;
-						playerHEALTH = playerhealthreset;
-						cout << "this it your health now --> " << playerHEALTH;
-
-					}
-				}
-			}
-
-
-
-
-
-
-			/*tell sasha i fixed it line 93 (:*/
-
-			enemyAI = enemyAI1(generator);
-			if (enemyAI == 1)
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 40)
-				{
-
-					cout << " enemy missed\n ";
-				}
-				else
-				{
-
-					int attackY = attackY1(generator);
-
-					playerHEALTH -= attackY;
-
-					cout << "your health ---->" << playerHEALTH << "";
-				}
-			}
-			else if (enemyAI == 3)
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 10)
-				{
-					cout << "enemy missed";
-				}
-				else
-				{
-
-					int attackW = attackW1(generator);
-
-					playerHEALTH -= attackW;
-
-					cout << "your health ---->" << playerHEALTH << "";
-
-				}
 
 			}
 		}
 
-	}
+	
 	if (attackCHOSSER == 'e')
 	{
-		cout << "co op it is\n";
-		system("pause");
-		cout << "select name player one:";
-		cin >> name;
-		cout << "\n select name player two: ";
-		cin >> name2;
-
-		cout << "okey " << name << " and " << name2 << " lets see what you got\n";
-		system("pause");
-		while ((playerHEALTH > 0) && (playertwo > 0))
-		{
-
-
-			std::cout << name << " starts\n w = sword\n y = axe \n x = shield\n\n\n " << name << "your health is" << playerHEALTH;
-			cin >> attackCHOSSER;
-
-
-
-
-
-
-
-
-
-			if (attackCHOSSER == 'y')
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 40)
-				{
-					cout << "you missed\n";
-				}
-				else
-				{
-
-					int attackY = attackY1(generator);
-
-					playerHEALTH -= attackY;
-
-					cout << name2 << "'s health---->" << enemyHEALTH << "\n\n\n\n";;
-
-				}
-
-
-
-
-			}
-			else if (attackCHOSSER == 'x')
-			{
-				cout << "you blocked\n";
-				continue;
-			}
-			else if (attackCHOSSER == 'w')
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 10)
-				{
-					cout << "you missed";
-				}
-				else
-				{
-
-					int attackW = attackW1(generator);
-
-					playerHEALTH -= attackW;
-
-					cout << name2 << "'s health---->" << enemyHEALTH << "\n\n\n\n";
-
-				}
-			}
-
-
-
-
-
-
-
-
-
-			std::cout << name2 << "'s turn now\n w = sword\n y = axe \n x = shield" << name2 << " your health is " << playertwo;
-			cin >> attackCHOSSER;
-
-
-
-
-
-
-
-
-
-			if (attackCHOSSER == 'y')
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 40)
-				{
-					cout << "you missed\n";
-				}
-				else
-				{
-
-					int attackY = attackY1(generator);
-
-					playertwo -= attackY;
-
-					cout << name << "'s health ---->" << playerHEALTH << "\n\n\n\n";
-
-				}
-
-
-
-
-			}
-			else if (attackCHOSSER == 'x')
-			{
-				cout << "you blocked\n";
-				continue;
-			}
-			else if (attackCHOSSER == 'w')
-			{
-				randomMISS = range(generator);
-				if (randomMISS <= 10)
-				{
-					cout << "you missed";
-				}
-				else
-				{
-
-					int attackW = attackW1(generator);
-
-					playertwo -= attackW;
-
-					cout << name << "'s health ---->" << playerHEALTH << "\n\n\n\n";
-
-				}
-			}
-
-
-		}
+		StartCoOp();
 	}
 }
 	
